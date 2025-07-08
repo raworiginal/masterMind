@@ -38,6 +38,7 @@ body {
   height: 2em;
   border: 2px solid black;
   box-shadow: 1px 1px 1px 1px;
+  background-color: white;
 }
 
 .result-container {
