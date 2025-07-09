@@ -3,13 +3,12 @@ const colors = ["yellow", "orange", "red", "purple", "blue", "green"];
 const resultColors = { fullyCorrect: "lightblue", halfCorrect: "pink" };
 
 /* ======================= Query Selectors ======================= */
-const controlBtns = document.querySelector(".controls");
+const controlBtns = document.querySelector("#game-controls");
 const guessRows = document.querySelectorAll(".guess-container");
 const resultRows = document.querySelectorAll(".result-container");
 const gameBoard = document.querySelector("#game-board");
 const gameDisplay = document.querySelector("#game-display");
-const gameControls = document.querySelector("#game-controls");
-const gameInstructions = document.querySelector("game-instructions");
+const gameInstructions = document.querySelector("#game-instructions");
 
 /* ======================= Variables ======================= */
 let currentRow;

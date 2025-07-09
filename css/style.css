@@ -3,96 +3,93 @@ body {
   padding: 0;
   background-color: lightgray;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px dotted black;
   height: 100vh;
-}
-#game-display {
-  width: 40vw;
-  height: min-content;
-  padding: 1.5em 1em;
-  display: grid;
-  grid-template-columns: 4fr 1fr;
-  grid-template-rows: repeat(10, 1fr);
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 2px 2px 2px 2px;
-}
-
-.guess-container {
-  border-bottom: 2px solid black;
-  grid-column: 1/2;
-  display: flex;
-  width: 100%;
-  height: 3em;
+  width: 100vw;
   justify-content: center;
-  gap: 10%;
+  align-items: center;
+}
+/* Major Sections */
+#game-board {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  width: 22.5rem;
+  height: 45rem;
+  background-color: whitesmoke;
+}
+/* ==================== Game Heading ==================== */
+#game-heading {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
   align-items: center;
 }
 
+h2,
+p {
+  padding: 0;
+  margin: 0;
+  font-family: helvetica, sans-serif;
+}
+/* ==================== Game Display ==================== */
+#game-display {
+  display: grid;
+  grid-template-rows: repeat(10, 1fr);
+  grid-template-columns: 4fr 1fr;
+  padding: 0 0.5em;
+  gap: 0.75em;
+}
+/* Guesses */
+.guess-container {
+  display: flex;
+  height: 100%;
+  gap: 0.25em;
+  justify-content: center;
+}
 .guess-box {
-  width: 2em;
-  height: 2em;
+  width: 1.5em;
+  aspect-ratio: 1/1;
   border: 2px solid black;
   box-shadow: 1px 1px 1px 1px;
   background-color: white;
-  transition: 0.5s;
 }
-
+/* Results */
 .result-container {
-  grid-column: 2/3;
-  /* border: 2px solid pink; */
-  border-bottom: 2px solid black;
-  border-left: 2px solid black;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  justify-items: self-end;
-  align-items: center;
-  transition: 0.5s;
+  gap: 0.25em;
+  align-items: self-start;
 }
-
 .peg {
-  width: 1em;
-  height: 1em;
-  border: 1px solid black;
-  border-radius: 50%;
-  text-align: center;
-  align-self: center;
-  justify-self: center;
-  box-shadow: 1px 1px 1px 1px;
-  background-color: white;
-  transition: 0.5s;
-}
-
-.controls {
-  display: grid;
-  background-color: white;
-  border: 1px solid black;
-  grid-template-columns: repeat(3, 1fr);
-  margin: 1em;
-  align-self: center;
-  border-radius: 8px;
-  box-shadow: 1px 1px 1px 1px;
-}
-
-.btn {
-  display: flex;
-  height: 3em;
+  width: 0.75em;
   aspect-ratio: 1/1;
   border: 1px solid black;
-  margin: 0.25em;
+  border-radius: 50%;
+  /* align-self: center; */
+  /* justify-self: center; */
+  box-shadow: 1px 1px 1px 1px;
+  background-color: white;
+}
+
+/* ==================== Game Controls ==================== */
+#game-controls {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  /* gap: 1%; */
+  /* padding: 0 0.5em; */
+}
+.btn {
+  border: 1px solid black;
   border-radius: 8px;
-  font-size: 1em;
-  font-weight: bold;
-  justify-content: center;
-  align-items: center;
   transition: 0.1s;
-  font-family: "Courier New", Courier, monospace;
+  width: 100%;
+  height: 100%;
+  /* margin: 1%; */
 }
 .btn:hover {
-  box-shadow: 1px 1px 1px 1px;
+  box-shadow: 2px 1px 1px 1px;
 }
 #yellow {
   background-color: yellow;
@@ -102,15 +99,6 @@ body {
 }
 #red {
   background-color: red;
-}
-.color-letter {
-  color: black;
-  border: 1px solid black;
-  border-radius: 100%;
-  padding: 0.25em;
-  text-align: center;
-  font-size: 1.5em;
-  background-color: white;
 }
 
 #purple {
@@ -125,7 +113,4 @@ body {
 
 button {
   margin: 0.25em;
-}
-.active {
-  background-color: slategray;
 }
