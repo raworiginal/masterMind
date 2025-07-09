@@ -11,8 +11,12 @@
   <body>
     <div id="game-board">
       <header id="game-header">
-        <h2>masterMind</h2>
-        <p>Can you solve the sequence?</p>
+        <h1 class="title">MASTERMIND</h1>
+        <p class="subtitle">Can You Break The Code?</p>
+        <div class="peg fully-correct"></div>
+        <p class="instructions">One Color, Correct Position</p>
+        <div class="peg half-correct"></div>
+        <p class="instructions">Correct color, wrong position</p>
       </header>
       <div id="game-display">
         <div class="guess-container">
@@ -22,10 +26,10 @@
           <div class="guess-box"></div>
         </div>
         <div class="result-container">
-          <div class="peg"></div>
-          <div class="peg"></div>
-          <div class="peg"></div>
-          <div class="peg"></div>
+          <div class="peg left"></div>
+          <div class="peg right"></div>
+          <div class="peg left"></div>
+          <div class="peg right"></div>
         </div>
         <div class="guess-container">
           <div class="guess-box"></div>

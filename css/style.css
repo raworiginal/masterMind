@@ -11,82 +11,120 @@ body {
 /* Major Sections */
 #game-board {
   display: grid;
-  grid-template-rows: auto auto auto;
+  grid-template-rows: 1fr 3fr 1fr;
   width: 22.5rem;
   height: 45rem;
   background-color: whitesmoke;
+  border-radius: 8px;
+  border: 4px solid black;
+  box-shadow: 1px 1px 1px 1px;
 }
 /* ==================== Game Heading ==================== */
-#game-heading {
-  display: flex;
-  padding: 0;
+#game-header {
+  display: grid;
+  grid-template-columns: 1em 1fr;
+  padding: 1em 0.5em;
   margin: 0;
-  justify-content: center;
-  align-items: center;
+  border-bottom: 2px solid black;
 }
-
-h2,
+.title {
+  grid-row: 1/2;
+  grid-column: span 2;
+  text-align: center;
+}
+.subtitle {
+  grid-row: 2/3;
+  grid-column: span 2;
+  text-align: center;
+  font-weight: bolder;
+}
+h1,
 p {
   padding: 0;
-  margin: 0;
+  margin: 0 0.5em;
   font-family: helvetica, sans-serif;
 }
+p {
+  font-size: 1em;
+}
+
+#game-header .peg {
+  width: 0.75em;
+}
+
+#game-header .fully-correct {
+  background-color: skyblue;
+}
+#game-header .half-correct {
+  background-color: pink;
+}
+.instructions {
+  padding: 0.25em;
+}
+
 /* ==================== Game Display ==================== */
 #game-display {
   display: grid;
   grid-template-rows: repeat(10, 1fr);
   grid-template-columns: 4fr 1fr;
-  padding: 0 0.5em;
-  gap: 0.75em;
+  border-bottom: 1px solid black;
+  row-gap: 0.25em;
+}
+.result-container,
+.guess-container {
+  border-bottom: 1px solid black;
+  height: 100%;
 }
 /* Guesses */
 .guess-container {
   display: flex;
-  height: 100%;
-  gap: 0.25em;
-  justify-content: center;
+  justify-content: space-evenly;
+  align-items: center;
 }
 .guess-box {
-  width: 1.5em;
-  aspect-ratio: 1/1;
-  border: 2px solid black;
+  width: 20%;
+  height: 80%;
+  border: 1px solid black;
   box-shadow: 1px 1px 1px 1px;
   background-color: white;
 }
 /* Results */
 .result-container {
   display: grid;
+  align-self: self-start;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 0.25em;
-  align-items: self-start;
 }
 .peg {
-  width: 0.75em;
+  width: 35%;
   aspect-ratio: 1/1;
   border: 1px solid black;
   border-radius: 50%;
-  /* align-self: center; */
-  /* justify-self: center; */
-  box-shadow: 1px 1px 1px 1px;
+  box-shadow: 0.5px 1px 1px 1px;
+  align-self: center;
+  justify-self: center;
   background-color: white;
 }
 
+.active {
+  background-color: slategrey;
+}
 /* ==================== Game Controls ==================== */
 #game-controls {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  /* gap: 1%; */
-  /* padding: 0 0.5em; */
+  /* justify-content: center; */
+  /* align-items: center; */
 }
 .btn {
   border: 1px solid black;
   border-radius: 8px;
   transition: 0.1s;
-  width: 100%;
-  height: 100%;
-  /* margin: 1%; */
+  width: 80%;
+  height: 80%;
+  justify-self: center;
+  align-self: center;
 }
 .btn:hover {
   box-shadow: 2px 1px 1px 1px;
