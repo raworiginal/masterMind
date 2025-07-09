@@ -9,138 +9,140 @@
     <script defer src="js/app.js"></script>
   </head>
   <body>
-    <div class="board">
-      <div class="guess-container">
-        <div class="guess-box"></div>
-        <div class="guess-box"></div>
-        <div class="guess-box"></div>
-        <div class="guess-box"></div>
+    <div id="game-board">
+      <div id="game-display">
+        <div class="guess-container">
+          <div class="guess-box"></div>
+          <div class="guess-box"></div>
+          <div class="guess-box"></div>
+          <div class="guess-box"></div>
+        </div>
+        <div class="result-container">
+          <div class="peg"></div>
+          <div class="peg"></div>
+          <div class="peg"></div>
+          <div class="peg"></div>
+        </div>
+        <div class="guess-container">
+          <div class="guess-box"></div>
+          <div class="guess-box"></div>
+          <div class="guess-box"></div>
+          <div class="guess-box"></div>
+        </div>
+        <div class="result-container">
+          <div class="peg"></div>
+          <div class="peg"></div>
+          <div class="peg"></div>
+          <div class="peg"></div>
+        </div>
+        <div class="guess-container">
+          <div class="guess-box"></div>
+          <div class="guess-box"></div>
+          <div class="guess-box"></div>
+          <div class="guess-box"></div>
+        </div>
+        <div class="result-container">
+          <div class="peg"></div>
+          <div class="peg"></div>
+          <div class="peg"></div>
+          <div class="peg"></div>
+        </div>
+        <div class="guess-container">
+          <div class="guess-box"></div>
+          <div class="guess-box"></div>
+          <div class="guess-box"></div>
+          <div class="guess-box"></div>
+        </div>
+        <div class="result-container">
+          <div class="peg"></div>
+          <div class="peg"></div>
+          <div class="peg"></div>
+          <div class="peg"></div>
+        </div>
+        <div class="guess-container">
+          <div class="guess-box"></div>
+          <div class="guess-box"></div>
+          <div class="guess-box"></div>
+          <div class="guess-box"></div>
+        </div>
+        <div class="result-container">
+          <div class="peg"></div>
+          <div class="peg"></div>
+          <div class="peg"></div>
+          <div class="peg"></div>
+        </div>
+        <div class="guess-container">
+          <div class="guess-box"></div>
+          <div class="guess-box"></div>
+          <div class="guess-box"></div>
+          <div class="guess-box"></div>
+        </div>
+        <div class="result-container">
+          <div class="peg"></div>
+          <div class="peg"></div>
+          <div class="peg"></div>
+          <div class="peg"></div>
+        </div>
+        <div class="guess-container">
+          <div class="guess-box"></div>
+          <div class="guess-box"></div>
+          <div class="guess-box"></div>
+          <div class="guess-box"></div>
+        </div>
+        <div class="result-container">
+          <div class="peg"></div>
+          <div class="peg"></div>
+          <div class="peg"></div>
+          <div class="peg"></div>
+        </div>
+        <div class="guess-container">
+          <div class="guess-box"></div>
+          <div class="guess-box"></div>
+          <div class="guess-box"></div>
+          <div class="guess-box"></div>
+        </div>
+        <div class="result-container">
+          <div class="peg"></div>
+          <div class="peg"></div>
+          <div class="peg"></div>
+          <div class="peg"></div>
+        </div>
+        <div class="guess-container">
+          <div class="guess-box"></div>
+          <div class="guess-box"></div>
+          <div class="guess-box"></div>
+          <div class="guess-box"></div>
+        </div>
+        <div class="result-container">
+          <div class="peg"></div>
+          <div class="peg"></div>
+          <div class="peg"></div>
+          <div class="peg"></div>
+        </div>
+        <div class="guess-container">
+          <div class="guess-box"></div>
+          <div class="guess-box"></div>
+          <div class="guess-box"></div>
+          <div class="guess-box"></div>
+        </div>
+        <div class="result-container">
+          <div class="peg"></div>
+          <div class="peg"></div>
+          <div class="peg"></div>
+          <div class="peg"></div>
+        </div>
       </div>
-      <div class="result-container">
-        <div class="peg"></div>
-        <div class="peg"></div>
-        <div class="peg"></div>
-        <div class="peg"></div>
+      <div class="controls">
+        <div class="color btn" id="yellow"></div>
+        <div class="color btn" id="orange"></div>
+        <div class="color btn" id="red"></div>
+        <div class="color btn" id="purple"></div>
+        <div class="color btn" id="blue"></div>
+        <div class="color btn" id="green"></div>
+        <button id="submit">SUBMIT</button>
+        <button id="delete">DELETE</button>
+        <button id="clear">CLEAR</button>
       </div>
-      <div class="guess-container">
-        <div class="guess-box"></div>
-        <div class="guess-box"></div>
-        <div class="guess-box"></div>
-        <div class="guess-box"></div>
-      </div>
-      <div class="result-container">
-        <div class="peg"></div>
-        <div class="peg"></div>
-        <div class="peg"></div>
-        <div class="peg"></div>
-      </div>
-      <div class="guess-container">
-        <div class="guess-box"></div>
-        <div class="guess-box"></div>
-        <div class="guess-box"></div>
-        <div class="guess-box"></div>
-      </div>
-      <div class="result-container">
-        <div class="peg"></div>
-        <div class="peg"></div>
-        <div class="peg"></div>
-        <div class="peg"></div>
-      </div>
-      <div class="guess-container">
-        <div class="guess-box"></div>
-        <div class="guess-box"></div>
-        <div class="guess-box"></div>
-        <div class="guess-box"></div>
-      </div>
-      <div class="result-container">
-        <div class="peg"></div>
-        <div class="peg"></div>
-        <div class="peg"></div>
-        <div class="peg"></div>
-      </div>
-      <div class="guess-container">
-        <div class="guess-box"></div>
-        <div class="guess-box"></div>
-        <div class="guess-box"></div>
-        <div class="guess-box"></div>
-      </div>
-      <div class="result-container">
-        <div class="peg"></div>
-        <div class="peg"></div>
-        <div class="peg"></div>
-        <div class="peg"></div>
-      </div>
-      <div class="guess-container">
-        <div class="guess-box"></div>
-        <div class="guess-box"></div>
-        <div class="guess-box"></div>
-        <div class="guess-box"></div>
-      </div>
-      <div class="result-container">
-        <div class="peg"></div>
-        <div class="peg"></div>
-        <div class="peg"></div>
-        <div class="peg"></div>
-      </div>
-      <div class="guess-container">
-        <div class="guess-box"></div>
-        <div class="guess-box"></div>
-        <div class="guess-box"></div>
-        <div class="guess-box"></div>
-      </div>
-      <div class="result-container">
-        <div class="peg"></div>
-        <div class="peg"></div>
-        <div class="peg"></div>
-        <div class="peg"></div>
-      </div>
-      <div class="guess-container">
-        <div class="guess-box"></div>
-        <div class="guess-box"></div>
-        <div class="guess-box"></div>
-        <div class="guess-box"></div>
-      </div>
-      <div class="result-container">
-        <div class="peg"></div>
-        <div class="peg"></div>
-        <div class="peg"></div>
-        <div class="peg"></div>
-      </div>
-      <div class="guess-container">
-        <div class="guess-box"></div>
-        <div class="guess-box"></div>
-        <div class="guess-box"></div>
-        <div class="guess-box"></div>
-      </div>
-      <div class="result-container">
-        <div class="peg"></div>
-        <div class="peg"></div>
-        <div class="peg"></div>
-        <div class="peg"></div>
-      </div>
-      <div class="guess-container">
-        <div class="guess-box"></div>
-        <div class="guess-box"></div>
-        <div class="guess-box"></div>
-        <div class="guess-box"></div>
-      </div>
-      <div class="result-container">
-        <div class="peg"></div>
-        <div class="peg"></div>
-        <div class="peg"></div>
-        <div class="peg"></div>
-      </div>
-    </div>
-    <div class="controls">
-      <div class="color btn" id="yellow"></div>
-      <div class="color btn" id="orange"></div>
-      <div class="color btn" id="red"></div>
-      <div class="color btn" id="purple"></div>
-      <div class="color btn" id="blue"></div>
-      <div class="color btn" id="green"></div>
-      <button id="submit">SUBMIT</button>
-      <button id="delete">DELETE</button>
-      <button id="clear">CLEAR</button>
     </div>
   </body>
 </html>

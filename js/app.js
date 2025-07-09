@@ -1,13 +1,17 @@
-/* Constants */
+/* ======================= Constants ======================= */
 const colors = ["yellow", "orange", "red", "purple", "blue", "green"];
-const resultColors = ["blac"];
+const resultColors = { fullyCorrect: "lightblue", halfCorrect: "pink" };
 
-/* Query Selectors */
+/* ======================= Query Selectors ======================= */
 const controlBtns = document.querySelector(".controls");
 const guessRows = document.querySelectorAll(".guess-container");
 const resultRows = document.querySelectorAll(".result-container");
+const gameBoard = document.querySelector("#game-board");
+const gameDisplay = document.querySelector("#game-display");
+const gameControls = document.querySelector("#game-controls");
+const gameInstructions = document.querySelector("game-instructions");
 
-/* Variables */
+/* ======================= Variables ======================= */
 let currentRow;
 let secretCode;
 let currentGuess;
@@ -15,20 +19,21 @@ let currentGuessBoxes;
 let currentResultPegs;
 let currentResults;
 let win;
-
-/* Functions */
+/* ======================= Functions ======================= */
 function init() {
   currentRow = 0;
   toggleActive();
   getSecretCode();
   currentGuess = [];
   currentResults = [];
+  win = false;
 }
 function handleClick(event) {
   if (
     event.target.classList.contains("color") &&
     currentGuess.length < 4 &&
-    !currentGuess.includes(event.target.id)
+    !currentGuess.includes(event.target.id) &&
+    !win
   ) {
     currentGuess.push(event.target.id);
   }
@@ -78,9 +83,9 @@ function updateBoard() {
 function checkWin() {
   for (let i = 0; i < currentGuess.length; i++) {
     if (currentGuess[i] === secretCode[i]) {
-      currentResults.push("lightblue");
+      currentResults.push(resultColors.fullyCorrect);
     } else if (secretCode.includes(currentGuess[i])) {
-      currentResults.push("pink");
+      currentResults.push(resultColors.halfCorrect);
     }
   }
   currentResults.sort();
@@ -102,7 +107,6 @@ function toggleActive() {
   guessRows[currentRow].classList.toggle("active");
   resultRows[currentRow].classList.toggle("active");
 }
-/* Init & Event Listenters */
+/* ======================= Init & Event Listenters ======================= */
 init();
-console.log(secretCode);
 controlBtns.addEventListener("click", handleClick);
