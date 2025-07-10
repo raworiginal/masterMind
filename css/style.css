@@ -66,7 +66,19 @@ p {
 .instructions {
   padding: 0.25em;
 }
-
+#mute-button,
+#sound-button {
+  font-size: 1.5em;
+  grid-column: 2/3;
+  justify-self: end;
+}
+#mute-button:hover,
+#sound-button:hover {
+  cursor: pointer;
+}
+.hidden {
+  display: none;
+}
 /* ==================== Game Display ==================== */
 #game-display {
   display: grid;
