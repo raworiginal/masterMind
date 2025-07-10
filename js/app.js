@@ -28,9 +28,11 @@ function init() {
   currentRow = 0;
   toggleActive();
   getSecretCode();
+  console.log(secretCode);
   currentGuess = [];
   currentResults = [];
   win = false;
+  clearBoard();
 }
 function handleClick(event) {
   if (
@@ -54,7 +56,7 @@ function handleClick(event) {
   if (event.target.id === "clear") {
     currentGuess = [];
   }
-  updateBoard();
+  updateBoard(currentRow);
 }
 
 function getSecretCode() {
@@ -67,7 +69,7 @@ function getSecretCode() {
   }
 }
 
-function updateBoard() {
+function updateBoard(currentRow) {
   currentGuessBoxes = guessRows[currentRow].querySelectorAll(".guess-box");
   for (let i = 0; i < currentGuessBoxes.length; i++) {
     if (currentGuess[i]) {
@@ -77,9 +79,11 @@ function updateBoard() {
     }
   }
   currentResultPegs = resultRows[currentRow].querySelectorAll(".peg");
-  for (i = 0; i < currentResults.length; i++) {
+  for (i = 0; i < currentResultPegs.length; i++) {
     if (currentResults[i]) {
       currentResultPegs[i].style.backgroundColor = currentResults[i];
+    } else {
+      currentResultPegs[i].style.backgroundColor = "white";
     }
   }
 }
@@ -94,15 +98,16 @@ function checkWin() {
   }
   currentResults.sort();
 
-  updateBoard();
+  updateBoard(currentRow);
   if (
     currentResults.length === 4 &&
     currentResults.every((peg) => peg === "lightblue")
   ) {
     win = true;
-    alert("Winner"); // This is temporary
-  } else if (currentRow === 9) {
-    alert("Loser!");
+  }
+  if (win || currentRow === 9) {
+    updateGameOver();
+    gameOver.showModal();
   }
   currentResults = [];
 }
@@ -122,6 +127,11 @@ function updateGameOver() {
     winMsg.textContent = "You're a WINNER!";
   } else {
     winMsg.textContent = "You're a LOSER!";
+  }
+}
+function clearBoard() {
+  for (let i = 0; i < guessRows.length; i++) {
+    updateBoard(i);
   }
 }
 /* ======================= Init & Event Listenters ======================= */
