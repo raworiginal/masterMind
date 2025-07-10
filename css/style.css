@@ -1,3 +1,7 @@
+* {
+  font-family: Helvetica, sans-serif;
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   padding: 0;
@@ -50,13 +54,14 @@ p {
 
 #game-header .peg {
   width: 0.75em;
+  background-color: slategray;
 }
 
 #game-header .fully-correct {
-  background-color: skyblue;
+  background-color: lightseagreen;
 }
 #game-header .half-correct {
-  background-color: pink;
+  background-color: hotpink;
 }
 .instructions {
   padding: 0.25em;
@@ -72,7 +77,8 @@ p {
 }
 .result-container,
 .guess-container {
-  border-bottom: 1px solid black;
+  /* border-bottom: 1px solid black; */
+  padding: 0.25em 0;
   height: 100%;
 }
 /* Guesses */
@@ -128,6 +134,7 @@ p {
 }
 .btn:hover {
   box-shadow: 2px 1px 1px 1px;
+  cursor: pointer;
 }
 #yellow {
   background-color: yellow;
@@ -149,6 +156,25 @@ p {
   background-color: green;
 }
 
-button {
-  margin: 0.25em;
+/* ====================== Modals ====================== */
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modal-body .btn {
+  width: 100%;
+  text-align: center;
+  padding: 0.5em 0;
+  background-color: slategray;
+  font-size: large;
+  color: white;
+  font-weight: bold;
+  margin: 1em 0 0 0;
+}
+
+.modal-body .guess-box {
+  width: 2em;
+  height: 2em;
 }

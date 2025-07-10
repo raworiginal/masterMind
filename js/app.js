@@ -1,6 +1,10 @@
 /* ======================= Constants ======================= */
 const colors = ["yellow", "orange", "red", "purple", "blue", "green"];
-const resultColors = { fullyCorrect: "lightblue", halfCorrect: "pink" };
+const resultColors = {
+  fullyCorrect: "lightseagreen",
+  halfCorrect: "hotpink",
+  wrong: "slategrey",
+};
 
 /* ======================= Query Selectors ======================= */
 const controlBtns = document.querySelector("#game-controls");
@@ -9,6 +13,11 @@ const resultRows = document.querySelectorAll(".result-container");
 const gameBoard = document.querySelector("#game-board");
 const gameDisplay = document.querySelector("#game-display");
 const gameInstructions = document.querySelector("#game-instructions");
+const playBtn = document.querySelector(".play-btn");
+const gameOver = document.querySelector("#game-over");
+const playAgainBtn = gameOver.querySelector(".play-btn");
+const winMsg = gameOver.querySelector(".win-msg");
+const answerBoxes = gameOver.querySelectorAll(".guess-box");
 
 /* ======================= Variables ======================= */
 let currentRow;
@@ -18,30 +27,36 @@ let currentGuessBoxes;
 let currentResultPegs;
 let currentResults;
 let win;
+let previousGuesses;
 /* ======================= Functions ======================= */
 function init() {
+  clearBoard();
   currentRow = 0;
-  toggleActive();
   getSecretCode();
   currentGuess = [];
   currentResults = [];
+  previousGuesses = [];
   win = false;
 }
 function handleClick(event) {
   if (
     event.target.classList.contains("color") &&
     currentGuess.length < 4 &&
-    !currentGuess.includes(event.target.id) &&
     !win
   ) {
     currentGuess.push(event.target.id);
   }
-  if (event.target.id === "submit" && currentGuess.length === 4) {
+  if (
+    event.target.id === "submit" &&
+    currentGuess.length === 4 &&
+    !previousGuesses.includes(currentGuess.join(" "))
+  ) {
     checkWin();
+    previousGuesses.push(currentGuess.join(" "));
     currentGuess = [];
-    toggleActive();
-    currentRow++;
-    toggleActive();
+    if (currentRow < 9) {
+      currentRow++;
+    }
   }
   if (event.target.id === "delete" && currentGuess) {
     currentGuess.pop();
@@ -56,10 +71,9 @@ function getSecretCode() {
   secretCode = [];
   while (secretCode.length < 4) {
     randomColor = colors[math.randomInt(colors.length)];
-    if (!secretCode.includes(randomColor)) {
-      secretCode.push(randomColor);
-    }
+    secretCode.push(randomColor);
   }
+  console.log(secretCode);
 }
 
 function updateBoard() {
@@ -72,9 +86,11 @@ function updateBoard() {
     }
   }
   currentResultPegs = resultRows[currentRow].querySelectorAll(".peg");
-  for (i = 0; i < currentResults.length; i++) {
+  for (i = 0; i < currentResultPegs.length; i++) {
     if (currentResults[i]) {
       currentResultPegs[i].style.backgroundColor = currentResults[i];
+    } else {
+      currentResultPegs[i].style.backgroundColor = "white";
     }
   }
 }
@@ -85,27 +101,63 @@ function checkWin() {
       currentResults.push(resultColors.fullyCorrect);
     } else if (secretCode.includes(currentGuess[i])) {
       currentResults.push(resultColors.halfCorrect);
+    } else {
+      currentResults.push(resultColors.wrong);
     }
   }
   currentResults.sort();
 
-  updateBoard();
   if (
     currentResults.length === 4 &&
-    currentResults.every((peg) => peg === "lightblue")
+    currentResults.every((peg) => peg === resultColors.fullyCorrect)
   ) {
     win = true;
-    alert("Winner"); // This is temporary
-  } else if (currentRow === 9) {
-    alert("Loser!");
   }
+  if (win || currentRow === 9) {
+    updateGameOver();
+    gameOver.showModal();
+  }
+  updateBoard();
   currentResults = [];
 }
 
-function toggleActive() {
-  guessRows[currentRow].classList.toggle("active");
-  resultRows[currentRow].classList.toggle("active");
+function updateGameOver() {
+  let i = 0;
+  answerBoxes.forEach((box) => {
+    box.style.backgroundColor = secretCode[i];
+    i++;
+  });
+  if (win) {
+    winMsg.textContent = "You're a WINNER!";
+  } else {
+    winMsg.textContent = "You're a LOSER!";
+  }
+}
+function clearBoard() {
+  guessRows.forEach((row) => {
+    boxes = row.querySelectorAll(".guess-box");
+    boxes.forEach((box) => {
+      box.style.backgroundColor = "white";
+    });
+  });
+  resultRows.forEach((row) => {
+    pegs = row.querySelectorAll(".peg");
+    pegs.forEach((peg) => {
+      peg.style.backgroundColor = "white";
+    });
+  });
 }
 /* ======================= Init & Event Listenters ======================= */
-init();
+document.addEventListener("DOMContentLoaded", () => {
+  gameInstructions.showModal();
+});
 controlBtns.addEventListener("click", handleClick);
+playBtn.addEventListener("click", () => {
+  gameInstructions.close();
+  init();
+});
+playAgainBtn.addEventListener("click", () => {
+  gameOver.close();
+  // toggleActive();
+  init();
+});
