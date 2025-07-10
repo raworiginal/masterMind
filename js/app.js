@@ -13,9 +13,7 @@ const loseSound = new Audio(
   "../assets/8-bit-video-game-fail-version-3-145479.mp3"
 );
 const winSound = new Audio("../assets/winsquare-6993.mp3");
-const buttonSound = new Audio(
-  "..//home/raworiginal/ga/projects/masterMind/assets/mech-keyboard-02-102918.mp3"
-);
+const buttonSound = new Audio("../assets/mech-keyboard-02-102918.mp3");
 /* ======================= Query Selectors ======================= */
 const controlBtns = document.querySelector("#game-controls");
 const guessRows = document.querySelectorAll(".guess-container");
@@ -56,7 +54,7 @@ function handleClick(event) {
     currentGuess.length < 4 &&
     !win
   ) {
-    buttonSound.volume = 0.5;
+    buttonSound.volume = 1;
     buttonSound.play();
     currentGuess.push(event.target.id);
   }
@@ -65,6 +63,8 @@ function handleClick(event) {
     currentGuess.length === 4 &&
     !previousGuesses.includes(currentGuess.join(" "))
   ) {
+    submitSound.volume = 0.5;
+    submitSound.play();
     checkWin();
     previousGuesses.push(currentGuess.join(" "));
     currentGuess = [];
@@ -129,7 +129,16 @@ function checkWin() {
   }
   if (win || currentRow === 9) {
     updateGameOver();
+    backgroundMusic.pause();
+
     gameOver.showModal();
+    if (win) {
+      winSound.volume = 1;
+      winSound.play();
+    } else {
+      loseSound.volume = 1;
+      loseSound.play();
+    }
   }
   updateBoard();
   currentResults = [];
@@ -166,6 +175,7 @@ document.addEventListener("DOMContentLoaded", () => {
   gameInstructions.showModal();
 });
 controlBtns.addEventListener("click", handleClick);
+
 playBtn.addEventListener("click", () => {
   gameInstructions.close();
   init();
@@ -188,5 +198,6 @@ soundButton.addEventListener("click", () => {
 
 playAgainBtn.addEventListener("click", () => {
   gameOver.close();
+  backgroundMusic.play();
   init();
 });
