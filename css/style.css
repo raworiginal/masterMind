@@ -54,13 +54,14 @@ p {
 
 #game-header .peg {
   width: 0.75em;
+  background-color: slategray;
 }
 
 #game-header .fully-correct {
-  background-color: skyblue;
+  background-color: lightseagreen;
 }
 #game-header .half-correct {
-  background-color: pink;
+  background-color: hotpink;
 }
 .instructions {
   padding: 0.25em;

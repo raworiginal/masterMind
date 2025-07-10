@@ -1,6 +1,10 @@
 /* ======================= Constants ======================= */
 const colors = ["yellow", "orange", "red", "purple", "blue", "green"];
-const resultColors = { fullyCorrect: "lightblue", halfCorrect: "pink" };
+const resultColors = {
+  fullyCorrect: "lightseagreen",
+  halfCorrect: "hotpink",
+  wrong: "slategrey",
+};
 
 /* ======================= Query Selectors ======================= */
 const controlBtns = document.querySelector("#game-controls");
@@ -36,7 +40,6 @@ function handleClick(event) {
   if (
     event.target.classList.contains("color") &&
     currentGuess.length < 4 &&
-    !currentGuess.includes(event.target.id) &&
     !win
   ) {
     currentGuess.push(event.target.id);
@@ -44,9 +47,9 @@ function handleClick(event) {
   if (event.target.id === "submit" && currentGuess.length === 4) {
     checkWin();
     currentGuess = [];
-    // toggleActive();
-    currentRow++;
-    // toggleActive();
+    if (currentRow < 9) {
+      currentRow++;
+    }
   }
   if (event.target.id === "delete" && currentGuess) {
     currentGuess.pop();
@@ -61,10 +64,9 @@ function getSecretCode() {
   secretCode = [];
   while (secretCode.length < 4) {
     randomColor = colors[math.randomInt(colors.length)];
-    if (!secretCode.includes(randomColor)) {
-      secretCode.push(randomColor);
-    }
+    secretCode.push(randomColor);
   }
+  console.log(secretCode);
 }
 
 function updateBoard() {
@@ -92,14 +94,15 @@ function checkWin() {
       currentResults.push(resultColors.fullyCorrect);
     } else if (secretCode.includes(currentGuess[i])) {
       currentResults.push(resultColors.halfCorrect);
+    } else {
+      currentResults.push(resultColors.wrong);
     }
   }
   currentResults.sort();
 
-  updateBoard(currentRow);
   if (
     currentResults.length === 4 &&
-    currentResults.every((peg) => peg === "lightblue")
+    currentResults.every((peg) => peg === resultColors.fullyCorrect)
   ) {
     win = true;
   }
@@ -107,6 +110,7 @@ function checkWin() {
     updateGameOver();
     gameOver.showModal();
   }
+  updateBoard();
   currentResults = [];
 }
 
