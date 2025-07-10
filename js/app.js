@@ -14,6 +14,7 @@ const loseSound = new Audio(
 );
 const winSound = new Audio("../assets/winsquare-6993.mp3");
 const buttonSound = new Audio("../assets/mech-keyboard-02-102918.mp3");
+
 /* ======================= Query Selectors ======================= */
 const controlBtns = document.querySelector("#game-controls");
 const guessRows = document.querySelectorAll(".guess-container");
@@ -28,6 +29,7 @@ const winMsg = gameOver.querySelector(".win-msg");
 const answerBoxes = gameOver.querySelectorAll(".guess-box");
 const muteButton = document.querySelector("#mute-button");
 const soundButton = document.querySelector("#sound-button");
+
 
 /* ======================= Variables ======================= */
 let currentRow;
@@ -139,6 +141,7 @@ function checkWin() {
       loseSound.volume = 1;
       loseSound.play();
     }
+
   }
   updateBoard();
   currentResults = [];
@@ -199,5 +202,6 @@ soundButton.addEventListener("click", () => {
 playAgainBtn.addEventListener("click", () => {
   gameOver.close();
   backgroundMusic.play();
+
   init();
 });
