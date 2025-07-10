@@ -2,10 +2,20 @@
 const colors = ["yellow", "orange", "red", "purple", "blue", "green"];
 const resultColors = {
   fullyCorrect: "lightseagreen",
-  halfCorrect: "hotpink",
+  halfCorrect: "pink",
   wrong: "slategrey",
 };
-
+const backgroundMusic = new Audio(
+  "../assets/sneaky-spy-quirky-and-fun-music-248801.mp3"
+);
+const submitSound = new Audio("../assets/notification-ping-372479.mp3");
+const loseSound = new Audio(
+  "../assets/8-bit-video-game-fail-version-3-145479.mp3"
+);
+const winSound = new Audio("../assets/winsquare-6993.mp3");
+const buttonSound = new Audio(
+  "..//home/raworiginal/ga/projects/masterMind/assets/mech-keyboard-02-102918.mp3"
+);
 /* ======================= Query Selectors ======================= */
 const controlBtns = document.querySelector("#game-controls");
 const guessRows = document.querySelectorAll(".guess-container");
@@ -18,6 +28,8 @@ const gameOver = document.querySelector("#game-over");
 const playAgainBtn = gameOver.querySelector(".play-btn");
 const winMsg = gameOver.querySelector(".win-msg");
 const answerBoxes = gameOver.querySelectorAll(".guess-box");
+const muteButton = document.querySelector("#mute-button");
+const soundButton = document.querySelector("#sound-button");
 
 /* ======================= Variables ======================= */
 let currentRow;
@@ -44,6 +56,8 @@ function handleClick(event) {
     currentGuess.length < 4 &&
     !win
   ) {
+    buttonSound.volume = 0.5;
+    buttonSound.play();
     currentGuess.push(event.target.id);
   }
   if (
@@ -155,9 +169,24 @@ controlBtns.addEventListener("click", handleClick);
 playBtn.addEventListener("click", () => {
   gameInstructions.close();
   init();
+  backgroundMusic.volume = 0.5;
+  backgroundMusic.play();
+  backgroundMusic.loop = true;
 });
+
+muteButton.addEventListener("click", () => {
+  backgroundMusic.volume = 0.0;
+  muteButton.classList.toggle("hidden");
+  soundButton.classList.toggle("hidden");
+});
+
+soundButton.addEventListener("click", () => {
+  backgroundMusic.volume = 0.5;
+  muteButton.classList.toggle("hidden");
+  soundButton.classList.toggle("hidden");
+});
+
 playAgainBtn.addEventListener("click", () => {
   gameOver.close();
-  // toggleActive();
   init();
 });

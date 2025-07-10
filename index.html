@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Master Mind</title>
+    <title>MasterMind</title>
     <link rel="stylesheet" href="css/style.css" />
     <script src="https://cdn.jsdelivr.net/npm/mathjs@14.5.3/lib/browser/math.min.js"></script>
     <script defer src="js/app.js"></script>
@@ -19,7 +19,10 @@
         <p class="instructions">color in sequence, wrong position</p>
         <div class="peg"></div>
         <p class="instructions">color not in sequence</p>
+        <div id="mute-button">🔇</div>
+        <div class="hidden" id="sound-button">🔊</div>
       </header>
+
       <div id="game-display">
         <div class="guess-container">
           <div class="guess-box"></div>
@@ -174,15 +177,13 @@
           <li>Click SUBMIT to check your guess.</li>
           <ul>
             <li>
-              <strong>blue peg</strong> correct color in the correct position
+              <strong>blue peg</strong> One choice in the correct position
             </li>
             <li>
               <strong>pink peg</strong> One choice is a correct color but in the
               wrong position.
             </li>
-            <li>
-              <strong>white peg</strong> one choice is the not in the sequence
-            </li>
+            <li><strong>gray peg</strong> One choice is not in the sequence</li>
           </ul>
           <li>
             Use the clues to refine your next guess. You have 10 tries to crack
