@@ -25,14 +25,12 @@ let currentResults;
 let win;
 /* ======================= Functions ======================= */
 function init() {
+  clearBoard();
   currentRow = 0;
-  toggleActive();
   getSecretCode();
-  console.log(secretCode);
   currentGuess = [];
   currentResults = [];
   win = false;
-  clearBoard();
 }
 function handleClick(event) {
   if (
@@ -46,9 +44,9 @@ function handleClick(event) {
   if (event.target.id === "submit" && currentGuess.length === 4) {
     checkWin();
     currentGuess = [];
-    toggleActive();
+    // toggleActive();
     currentRow++;
-    toggleActive();
+    // toggleActive();
   }
   if (event.target.id === "delete" && currentGuess) {
     currentGuess.pop();
@@ -56,7 +54,7 @@ function handleClick(event) {
   if (event.target.id === "clear") {
     currentGuess = [];
   }
-  updateBoard(currentRow);
+  updateBoard();
 }
 
 function getSecretCode() {
@@ -69,7 +67,7 @@ function getSecretCode() {
   }
 }
 
-function updateBoard(currentRow) {
+function updateBoard() {
   currentGuessBoxes = guessRows[currentRow].querySelectorAll(".guess-box");
   for (let i = 0; i < currentGuessBoxes.length; i++) {
     if (currentGuess[i]) {
@@ -112,14 +110,9 @@ function checkWin() {
   currentResults = [];
 }
 
-function toggleActive() {
-  guessRows[currentRow].classList.toggle("active");
-  resultRows[currentRow].classList.toggle("active");
-}
 function updateGameOver() {
   let i = 0;
   answerBoxes.forEach((box) => {
-    console.log(box);
     box.style.backgroundColor = secretCode[i];
     i++;
   });
@@ -130,13 +123,21 @@ function updateGameOver() {
   }
 }
 function clearBoard() {
-  for (let i = 0; i < guessRows.length; i++) {
-    updateBoard(i);
-  }
+  guessRows.forEach((row) => {
+    boxes = row.querySelectorAll(".guess-box");
+    boxes.forEach((box) => {
+      box.style.backgroundColor = "white";
+    });
+  });
+  resultRows.forEach((row) => {
+    pegs = row.querySelectorAll(".peg");
+    pegs.forEach((peg) => {
+      peg.style.backgroundColor = "white";
+    });
+  });
 }
 /* ======================= Init & Event Listenters ======================= */
 document.addEventListener("DOMContentLoaded", () => {
-  console.log(secretCode);
   gameInstructions.showModal();
 });
 controlBtns.addEventListener("click", handleClick);
@@ -146,5 +147,6 @@ playBtn.addEventListener("click", () => {
 });
 playAgainBtn.addEventListener("click", () => {
   gameOver.close();
+  // toggleActive();
   init();
 });
