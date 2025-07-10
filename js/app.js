@@ -9,6 +9,7 @@ const resultRows = document.querySelectorAll(".result-container");
 const gameBoard = document.querySelector("#game-board");
 const gameDisplay = document.querySelector("#game-display");
 const gameInstructions = document.querySelector("#game-instructions");
+const playBtn = document.querySelector("#play-btn");
 
 /* ======================= Variables ======================= */
 let currentRow;
@@ -107,5 +108,12 @@ function toggleActive() {
   resultRows[currentRow].classList.toggle("active");
 }
 /* ======================= Init & Event Listenters ======================= */
+document.addEventListener("DOMContentLoaded", () =>
+  gameInstructions.showModal()
+);
 init();
 controlBtns.addEventListener("click", handleClick);
+playBtn.addEventListener("click", () => {
+  console.log("click");
+  gameInstructions.close();
+});

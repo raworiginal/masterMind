@@ -1,3 +1,6 @@
+* {
+  font-family: Helvetica, sans-serif;
+}
 body {
   margin: 0;
   padding: 0;
@@ -151,4 +154,23 @@ p {
 
 button {
   margin: 0.25em;
+}
+/* ====================== Modals ====================== */
+.modal {
+  display: flex;
+  flex-direction: column;
+  padding: zero;
+  max-width: 22.5rem;
+  border-radius: 8px;
+}
+.modal * {
+  margin: 0.2em;
+}
+.modal img {
+  border: 1px solid black;
+  border-radius: 8px;
+}
+.modal li,
+.modal p {
+  font-size: 0.8em;
 }
