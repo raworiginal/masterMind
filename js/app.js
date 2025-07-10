@@ -27,6 +27,7 @@ let currentGuessBoxes;
 let currentResultPegs;
 let currentResults;
 let win;
+let previousGuesses;
 /* ======================= Functions ======================= */
 function init() {
   clearBoard();
@@ -34,6 +35,7 @@ function init() {
   getSecretCode();
   currentGuess = [];
   currentResults = [];
+  previousGuesses = [];
   win = false;
 }
 function handleClick(event) {
@@ -44,8 +46,13 @@ function handleClick(event) {
   ) {
     currentGuess.push(event.target.id);
   }
-  if (event.target.id === "submit" && currentGuess.length === 4) {
+  if (
+    event.target.id === "submit" &&
+    currentGuess.length === 4 &&
+    !previousGuesses.includes(currentGuess.join(" "))
+  ) {
     checkWin();
+    previousGuesses.push(currentGuess.join(" "));
     currentGuess = [];
     if (currentRow < 9) {
       currentRow++;
