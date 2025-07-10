@@ -9,7 +9,11 @@ const resultRows = document.querySelectorAll(".result-container");
 const gameBoard = document.querySelector("#game-board");
 const gameDisplay = document.querySelector("#game-display");
 const gameInstructions = document.querySelector("#game-instructions");
-const playBtn = document.querySelector("#play-btn");
+const playBtn = document.querySelector(".play-btn");
+const gameOver = document.querySelector("#game-over");
+const playAgainBtn = gameOver.querySelector(".play-btn");
+const winMsg = gameOver.querySelector(".win-msg");
+const answerBoxes = gameOver.querySelectorAll(".guess-box");
 
 /* ======================= Variables ======================= */
 let currentRow;
@@ -107,13 +111,30 @@ function toggleActive() {
   guessRows[currentRow].classList.toggle("active");
   resultRows[currentRow].classList.toggle("active");
 }
+function updateGameOver() {
+  let i = 0;
+  answerBoxes.forEach((box) => {
+    console.log(box);
+    box.style.backgroundColor = secretCode[i];
+    i++;
+  });
+  if (win) {
+    winMsg.textContent = "You're a WINNER!";
+  } else {
+    winMsg.textContent = "You're a LOSER!";
+  }
+}
 /* ======================= Init & Event Listenters ======================= */
-document.addEventListener("DOMContentLoaded", () =>
-  gameInstructions.showModal()
-);
-init();
+document.addEventListener("DOMContentLoaded", () => {
+  console.log(secretCode);
+  gameInstructions.showModal();
+});
 controlBtns.addEventListener("click", handleClick);
 playBtn.addEventListener("click", () => {
-  console.log("click");
   gameInstructions.close();
+  init();
+});
+playAgainBtn.addEventListener("click", () => {
+  gameOver.close();
+  init();
 });

@@ -1,5 +1,6 @@
 * {
   font-family: Helvetica, sans-serif;
+  box-sizing: border-box;
 }
 body {
   margin: 0;
@@ -75,7 +76,8 @@ p {
 }
 .result-container,
 .guess-container {
-  border-bottom: 1px solid black;
+  /* border-bottom: 1px solid black; */
+  padding: 0.25em 0;
   height: 100%;
 }
 /* Guesses */
@@ -131,6 +133,7 @@ p {
 }
 .btn:hover {
   box-shadow: 2px 1px 1px 1px;
+  cursor: pointer;
 }
 #yellow {
   background-color: yellow;
@@ -152,25 +155,25 @@ p {
   background-color: green;
 }
 
-button {
-  margin: 0.25em;
-}
 /* ====================== Modals ====================== */
-.modal {
+.modal-body {
   display: flex;
   flex-direction: column;
-  padding: zero;
-  max-width: 22.5rem;
-  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
 }
-.modal * {
-  margin: 0.2em;
+.modal-body .btn {
+  width: 100%;
+  text-align: center;
+  padding: 0.5em 0;
+  background-color: slategray;
+  font-size: large;
+  color: white;
+  font-weight: bold;
+  margin: 1em 0 0 0;
 }
-.modal img {
-  border: 1px solid black;
-  border-radius: 8px;
-}
-.modal li,
-.modal p {
-  font-size: 0.8em;
+
+.modal-body .guess-box {
+  width: 2em;
+  height: 2em;
 }

@@ -14,11 +14,11 @@
         <h1 class="title">MASTERMIND</h1>
         <p class="subtitle">Can You Break The Code?</p>
         <div class="peg fully-correct"></div>
-        <p class="instructions">correct color, correct position</p>
+        <p class="instructions">color & position in sequence</p>
         <div class="peg half-correct"></div>
-        <p class="instructions">correct color, wrong position</p>
-        <div class="peg half-correct"></div>
-        <p class="instructions">correct color, wrong position</p>
+        <p class="instructions">color in sequence, wrong position</p>
+        <div class="peg"></div>
+        <p class="instructions">color not in sequence</p>
       </header>
       <div id="game-display">
         <div class="guess-container">
@@ -154,33 +154,62 @@
         <button class="btn" id="clear">CLEAR</button>
       </div>
     </div>
-    <dialog class="modal" id="game-instructions">
-      <h2>MASTERMIND</h2>
-      <p>Guess the secret sequence of four colors in the correct order.</p>
-      <h3>How to Play</h3>
-      <img src="assets/sample-row.png" alt="a row of colored rectangles and pegs.">
-      <ol>
-        <li>
-          Click the color buttons to build your guess (colors can repeat).
-        </li>
-        <li>
-          Use <strong>DELETE</strong> to remove the last color or <strong>CLEAR</strong> to reset your guess.
-        </li>
-        <li>Click SUBMIT to check your guess.</li>
+    <dialog id="game-instructions">
+      <div class="modal-body">
+        <h2>MASTERMIND</h2>
+        <p>Guess the secret sequence of four colors in the correct order.</p>
+        <h3>How to Play</h3>
+        <img
+          src="assets/sample-row.png"
+          alt="a row of colored rectangles and pegs."
+        />
+        <ol>
+          <li>
+            Click the color buttons to build your guess (colors can repeat).
+          </li>
+          <li>
+            Use <strong>DELETE</strong> to remove the last color or
+            <strong>CLEAR</strong> to reset your guess.
+          </li>
+          <li>Click SUBMIT to check your guess.</li>
           <ul>
             <li>
               <strong>blue peg</strong> correct color in the correct position
             </li>
             <li>
-              pink peg: One choice is a correct color but in the wrong position.
+              <strong>pink peg</strong> One choice is a correct color but in the
+              wrong position.
             </li>
-            <li>white peg: one choice is the not in the sequence</li>
+            <li>
+              <strong>white peg</strong> one choice is the not in the sequence
+            </li>
           </ul>
-          <li>Use the clues to refine your next guess. You have 10 tries to crack the code!</li>
-        </li>
-      </ol>
-      <p><strong>Tip:</strong> Feedback pegs don't line up with specific color positions</p>
-      <button id="play-btn">Play</button>
+          <li>
+            Use the clues to refine your next guess. You have 10 tries to crack
+            the code!
+          </li>
+        </ol>
+        <p>
+          <strong>Tip:</strong> Feedback pegs don't line up with specific color
+          positions
+        </p>
+        <div class="btn play-btn">Play</div>
+      </div>
+    </dialog>
+    <dialog id="game-over">
+      <div class="modal-body">
+        <h2 class="win-msg">Game Over</h2>
+        <p>CORRECT SEQUENCE :</p>
+        <div class="correct-sequence">
+          <div class="guess-container">
+            <div class="guess-box"></div>
+            <div class="guess-box"></div>
+            <div class="guess-box"></div>
+            <div class="guess-box"></div>
+          </div>
+          <div class="btn play-btn">Play Again?</div>
+        </div>
+      </div>
     </dialog>
   </body>
 </html>
