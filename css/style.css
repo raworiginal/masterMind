@@ -89,12 +89,10 @@ body {
   display: grid;
   grid-template-rows: repeat(5, 1fr);
   grid-template-columns: 4fr 1fr;
-  /* border-bottom: 1px solid black; */
   row-gap: 0.25em;
 }
 .result-container,
 .guess-container {
-  /* border-bottom: 1px solid black; */
   padding: 0.25em 0;
   height: 100%;
 }
@@ -137,8 +135,6 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  /* justify-content: center; */
-  /* align-items: center; */
 }
 .btn {
   border: 1px solid black;
@@ -196,4 +192,7 @@ body {
 .modal-body .guess-box {
   width: 2em;
   height: 2em;
+}
+.modal-body img {
+  max-width: 80%;
 }

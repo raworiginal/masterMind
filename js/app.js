@@ -56,7 +56,7 @@ function handleClick(event) {
     !win &&
     !currentGuess.includes(event.target.id)
   ) {
-    buttonSound.volume = 1;
+    buttonSound.volume = 0.25;
     buttonSound.play();
     currentGuess.push(event.target.id);
   }
@@ -65,7 +65,7 @@ function handleClick(event) {
     currentGuess.length === 4 &&
     !previousGuesses.includes(currentGuess.join(" "))
   ) {
-    submitSound.volume = 0.5;
+    submitSound.volume = 0.25;
     submitSound.play();
     checkWin();
     previousGuesses.push(currentGuess.join(" "));
@@ -134,10 +134,10 @@ function checkWin() {
 
     gameOver.showModal();
     if (win) {
-      winSound.volume = 1;
+      winSound.volume = 0.25;
       winSound.play();
     } else {
-      loseSound.volume = 1;
+      loseSound.volume = 0.25;
       loseSound.play();
     }
   }
@@ -181,7 +181,7 @@ controlBtns.addEventListener("click", handleClick);
 playBtn.addEventListener("click", () => {
   gameInstructions.close();
   init();
-  backgroundMusic.volume = 0.25;
+  backgroundMusic.volume = 0.05;
   backgroundMusic.play();
   backgroundMusic.loop = true;
 });
@@ -193,7 +193,7 @@ muteButton.addEventListener("click", () => {
 });
 
 soundButton.addEventListener("click", () => {
-  backgroundMusic.volume = 0.5;
+  backgroundMusic.volume = 0.05;
   muteButton.classList.toggle("hidden");
   soundButton.classList.toggle("hidden");
 });

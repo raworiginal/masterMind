@@ -1,3 +1,7 @@
+# Master Mind
+
+![full-game screenshoot](./assets/full-game-screenshot.png)
+
 # Assets
 
 Sound Effect by <a href="https://pixabay.com/users/dragon-studio-38165424/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=372479">DRAGON-STUDIO</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=372479">Pixabay</a>
