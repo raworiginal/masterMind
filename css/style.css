@@ -16,8 +16,10 @@ body {
 #game-board {
   display: grid;
   grid-template-rows: 1fr 3fr 1fr;
-  width: 22.5rem;
-  height: 45rem;
+  min-width: 30rem;
+  max-width: 100ww;
+  max-height: 100vh;
+  padding: 0.5em;
   background-color: whitesmoke;
   border-radius: 8px;
   border: 4px solid black;
@@ -26,35 +28,37 @@ body {
 /* ==================== Game Heading ==================== */
 #game-header {
   display: grid;
-  grid-template-columns: 1em 1fr;
-  padding: 1em 0.5em;
+  grid-template-columns: 1em 1fr 1em;
+  padding: 1.618em;
   margin: 0;
   border-bottom: 2px solid black;
 }
 .title {
   grid-row: 1/2;
-  grid-column: span 2;
+  grid-column: span 3;
   text-align: center;
 }
 .subtitle {
   grid-row: 2/3;
-  grid-column: span 2;
+  grid-column: span 3;
   text-align: center;
   font-weight: bolder;
 }
-h1,
-p {
+#game-header h1,
+#game-header p {
   padding: 0;
-  margin: 0 0.5em;
-  font-family: helvetica, sans-serif;
+  margin: 0;
+  /* font-family: helvetica, sans-serif; */
 }
-p {
-  font-size: 1em;
+#game-header p {
+  font-size: 1.25em;
+  margin-left: 0.75em;
 }
 
 #game-header .peg {
-  width: 0.75em;
+  width: 1.25em;
   background-color: slategray;
+  grid-column: 1/2;
 }
 
 #game-header .fully-correct {
@@ -69,7 +73,7 @@ p {
 #mute-button,
 #sound-button {
   font-size: 1.5em;
-  grid-column: 2/3;
+  grid-column: 3/4;
   justify-self: end;
 }
 #mute-button:hover,
@@ -114,7 +118,7 @@ p {
   grid-template-rows: 1fr 1fr;
 }
 .peg {
-  width: 45%;
+  width: 50%;
   aspect-ratio: 1/1;
   border: 1px solid black;
   border-radius: 50%;
