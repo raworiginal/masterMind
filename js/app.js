@@ -53,7 +53,8 @@ function handleClick(event) {
   if (
     event.target.classList.contains("color") &&
     currentGuess.length < 4 &&
-    !win
+    !win &&
+    !currentGuess.includes(event.target.id)
   ) {
     buttonSound.volume = 1;
     buttonSound.play();
@@ -86,13 +87,11 @@ function getSecretCode() {
   secretCode = [];
   while (secretCode.length < 4) {
     randomColor = colors[math.randomInt(colors.length)];
-    secretCode.push(randomColor);
+    if (!secretCode.includes(randomColor)) secretCode.push(randomColor);
   }
-  console.log(secretCode);
 }
 
 function updateBoard() {
-  console.log(currentRow);
   currentGuessBoxes = guessRows[currentRow].querySelectorAll(".guess-box");
   for (let i = 0; i < currentGuessBoxes.length; i++) {
     if (currentGuess[i]) {
