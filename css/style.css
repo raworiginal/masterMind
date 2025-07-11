@@ -5,7 +5,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: lightgray;
+  background-color: slategray;
   display: flex;
   height: 90vh;
   width: 100vw;
@@ -127,9 +127,6 @@ body {
   background-color: white;
 }
 
-.active {
-  background-color: slategrey;
-}
 /* ==================== Game Controls ==================== */
 #game-controls {
   display: grid;
@@ -139,6 +136,7 @@ body {
 .btn {
   border: 1px solid black;
   border-radius: 8px;
+  font-weight: bold;
   transition: 0.1s;
   width: 80%;
   height: 80%;
@@ -182,7 +180,7 @@ body {
   width: 100%;
   text-align: center;
   padding: 0.5em 0;
-  background-color: slategray;
+  background-color: rgb(23, 27, 31);
   font-size: large;
   color: white;
   font-weight: bold;
