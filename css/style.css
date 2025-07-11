@@ -16,7 +16,7 @@ body {
 #game-board {
   display: grid;
   grid-template-rows: 1fr 3fr 1fr;
-  min-width: 30rem;
+  min-width: 20em;
   max-width: 100ww;
   max-height: 95vh;
   padding: 0.5em;
@@ -29,9 +29,9 @@ body {
 #game-header {
   display: grid;
   grid-template-columns: 1em 1fr 1em;
-  padding: 1.618em;
+  padding: 1em 1.618em;
   margin: 0;
-  border-bottom: 2px solid black;
+  row-gap: 0.1em;
 }
 .title {
   grid-row: 1/2;
@@ -88,7 +88,7 @@ body {
   display: grid;
   grid-template-rows: repeat(5, 1fr);
   grid-template-columns: 4fr 1fr;
-  border-bottom: 1px solid black;
+  /* border-bottom: 1px solid black; */
   row-gap: 0.25em;
 }
 .result-container,
@@ -178,6 +178,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 80vw;
+  max-width: 30em;
 }
 .modal-body .btn {
   width: 100%;
