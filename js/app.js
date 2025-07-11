@@ -88,7 +88,6 @@ function getSecretCode() {
     randomColor = colors[math.randomInt(colors.length)];
     secretCode.push(randomColor);
   }
-  console.log(secretCode);
 }
 
 function updateBoard() {
