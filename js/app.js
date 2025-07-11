@@ -6,7 +6,7 @@ const resultColors = {
   wrong: "slategrey",
 };
 const backgroundMusic = new Audio(
-  "/assets/sneaky-spy-quirky-and-fun-music-248801.mp3"
+  "./assets/sneaky-spy-quirky-and-fun-music-248801.mp3"
 );
 const submitSound = new Audio("/assets/notification-ping-372479.mp3");
 const loseSound = new Audio(
