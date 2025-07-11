@@ -8,12 +8,12 @@ const resultColors = {
 const backgroundMusic = new Audio(
   "./assets/sneaky-spy-quirky-and-fun-music-248801.mp3"
 );
-const submitSound = new Audio("/assets/notification-ping-372479.mp3");
+const submitSound = new Audio("./assets/notification-ping-372479.mp3");
 const loseSound = new Audio(
-  "/assets/8-bit-video-game-fail-version-3-145479.mp3"
+  "./assets/8-bit-video-game-fail-version-3-145479.mp3"
 );
-const winSound = new Audio("/assets/winsquare-6993.mp3");
-const buttonSound = new Audio("/assets/mech-keyboard-02-102918.mp3");
+const winSound = new Audio("./assets/winsquare-6993.mp3");
+const buttonSound = new Audio("./assets/mech-keyboard-02-102918.mp3");
 
 /* ======================= Query Selectors ======================= */
 const controlBtns = document.querySelector("#game-controls");
