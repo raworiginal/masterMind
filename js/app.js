@@ -69,7 +69,7 @@ function handleClick(event) {
     checkWin();
     previousGuesses.push(currentGuess.join(" "));
     currentGuess = [];
-    if (currentRow < 9) {
+    if (currentRow < 4) {
       currentRow++;
     }
   }
@@ -88,9 +88,11 @@ function getSecretCode() {
     randomColor = colors[math.randomInt(colors.length)];
     secretCode.push(randomColor);
   }
+  console.log(secretCode);
 }
 
 function updateBoard() {
+  console.log(currentRow);
   currentGuessBoxes = guessRows[currentRow].querySelectorAll(".guess-box");
   for (let i = 0; i < currentGuessBoxes.length; i++) {
     if (currentGuess[i]) {
@@ -127,7 +129,7 @@ function checkWin() {
   ) {
     win = true;
   }
-  if (win || currentRow === 9) {
+  if (win || currentRow === 4) {
     updateGameOver();
     backgroundMusic.pause();
 
@@ -174,6 +176,7 @@ function clearBoard() {
 document.addEventListener("DOMContentLoaded", () => {
   gameInstructions.showModal();
 });
+
 controlBtns.addEventListener("click", handleClick);
 
 playBtn.addEventListener("click", () => {

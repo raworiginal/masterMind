@@ -18,7 +18,7 @@ body {
   grid-template-rows: 1fr 3fr 1fr;
   min-width: 30rem;
   max-width: 100ww;
-  max-height: 100vh;
+  max-height: 95vh;
   padding: 0.5em;
   background-color: whitesmoke;
   border-radius: 8px;
