@@ -179,7 +179,7 @@ controlBtns.addEventListener("click", handleClick);
 playBtn.addEventListener("click", () => {
   gameInstructions.close();
   init();
-  backgroundMusic.volume = 0.5;
+  backgroundMusic.volume = 0.25;
   backgroundMusic.play();
   backgroundMusic.loop = true;
 });
