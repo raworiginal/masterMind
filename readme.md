@@ -6,7 +6,7 @@
 
 Mastermind is a Deduction Game. The user guesses a sequence of 4 colors to try and decipher the secret sequence of colors. The result pegs reveal if there is a color in the correct position, or if the color is in the sequence but a different position, or if the color is not in the sequence. There will be no duplicates in the sequence, but the the position of the peg does not correspond to the positions in the user's guess.
 
-I choose this game because I wanted to build a deduction game similar to wordle, and I wanted to focus on practicing with CSS grid for my layout.
+I chose this game because I wanted to build a deduction game similar to wordle, and I wanted to focus on practicing with CSS grid for my layout.
 
 ## Deployed Game
 
