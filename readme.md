@@ -26,7 +26,7 @@ I chose this game because I wanted to build a deduction game similar to wordle, 
 
 - Add the ability to view the board after game over.
 - Add the feature to mute sound effects and music separately.
-- Add the ability for the user to pull up the instructions after the game.has started.
+- Add the ability for the user to pull up the instructions after the game has started.
 - implement a 'share results' feature
 
 ## Assets
